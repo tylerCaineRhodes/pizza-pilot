@@ -1,15 +1,68 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@media screen and (max-width: 400px) {
+  .banner {
+    font-size: 12px;
+    height: 51px;
+  }
+}
+
+:root {
+  --primary-color: rgba(253, 25, 4, 0.621);
+  --margin-spacing: 2rem;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner {
+  background: var(--primary-color);
+  font-family: cursive;
+  text-align: left;
+  padding-left: 1rem;
+  position: sticky;
+  top: 0px;
+}
+
+
+.banner .pizza-href {
+  position: absolute;
+  font: unset;
+  top: 0.5rem;
+  right: 1rem;
+}
+
+.banner .toppings-href {
+  font: unset;
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  margin: var(--margin-spacing);
+  padding: calc(var(--margin-spacing) / 2);
+  border: 1px dotted var(--primary-color);
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.item:hover {
+  background: var(--primary-color);
+  cursor: pointer;
+  color: white;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
