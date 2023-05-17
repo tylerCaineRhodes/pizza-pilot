@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: pizza_pilot_development
+  username: <%= ENV["PIZZA_PILOT_DATABASE_USERNAME"] %>
+  password: <%= ENV["PIZZA_PILOT_DATABASE_PASSWORD"] %>
+  host: localhost
+
+test:
+  <<: *default
+  database: pizza_pilot_test
+  username: <%= ENV["PIZZA_PILOT_DATABASE_USERNAME"] %>
+  password: <%= ENV["PIZZA_PILOT_DATABASE_PASSWORD"] %>
+  host: localhost
+
+production:
+  <<: *default
+  database: pizza_pilot_production
+  username: <%= ENV["PIZZA_PILOT_DATABASE_USERNAME"] %>
+  password: <%= ENV["PIZZA_PILOT_DATABASE_PASSWORD"] %>
