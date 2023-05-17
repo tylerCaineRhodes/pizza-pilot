@@ -1,0 +1,15 @@
+<h2>Le Toppings</h2>
+<div class="items">
+  <% @toppings.each do |topping| %>
+    <%= link_to topping do%>
+      <div class="item">
+        <%= topping.name %>
+      </div>
+    <% end %>
+  <% end %>
+  <%= link_to new_topping_path do%>
+    <div class="item">
+        <span>+</span>
+    </div>
+  <% end %>
+</div>

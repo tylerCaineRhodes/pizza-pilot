@@ -1,0 +1,13 @@
+<div class="topping" id="<%= dom_id topping %>">
+  <h2>Name: <%=topping.name %></h2>
+  <h2>Calories: <%=topping.calories %></h2>
+  <p>This topping is considered <%=topping.healthiness %>.</p>
+  <p>This topping is on the following pizzas:</p>
+  <ul>
+  <% topping.pizzas.each do |pizza| %>
+    <li>
+    <%= link_to(pizza.name, pizza_path(pizza.id)) %>
+    </li>
+  <% end %>
+  </ul>
+</div>
