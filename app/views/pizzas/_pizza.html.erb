@@ -1,0 +1,12 @@
+<div id="<%= dom_id pizza %>">
+  <h1><%=pizza.name %></h1>
+  <h4>Toppings on this Pizza</h4>
+  <h4> Pizza Total Calories: <%= pizza.calories %></h4>
+  <ul>
+  <% pizza.toppings.each do |topping| %>
+    <li>
+    <%= topping.name %>
+    </li>
+  <% end %>
+  </ul>
+</div>

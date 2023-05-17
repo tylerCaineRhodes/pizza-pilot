@@ -1,0 +1,16 @@
+<div style="color: green"><%= notice %></div>
+<h2>Le Pizzas</h2>
+<div class="items">
+  <% @pizzas.each do |pizza| %>
+    <%= link_to pizza do %>
+      <div class="item">
+          <%= pizza.name %>
+      </div>
+    <% end %>
+  <% end %>
+  <%= link_to new_pizza_path do %>
+    <div class="item">
+        <span>+</span>
+    </div>
+  <% end %>
+</div>

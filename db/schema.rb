@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_17_230719) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_17_232254) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_230719) do
     t.bigint "topping_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["pizza_id", "topping_id"], name: "idx_pizza_toppings_on_pizza_id_topping_id", unique: true
     t.index ["pizza_id", "topping_id"], name: "index_pizza_toppings_on_pizza_id_and_topping_id"
     t.index ["pizza_id"], name: "index_pizza_toppings_on_pizza_id"
     t.index ["topping_id", "pizza_id"], name: "index_pizza_toppings_on_topping_id_and_pizza_id"
@@ -29,6 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_230719) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_pizzas_on_name", unique: true
   end
 
   create_table "toppings", force: :cascade do |t|
