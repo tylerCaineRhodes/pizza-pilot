@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_17_224216) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_17_230719) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,6 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_224216) do
     t.integer "calories", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_toppings_on_name", unique: true
   end
 
   add_foreign_key "pizza_toppings", "pizzas"

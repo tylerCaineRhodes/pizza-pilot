@@ -22,6 +22,9 @@ Rails:
 Rails/FilePath:
   Enabled: false
 
+Rails/I18nLocaleTexts:
+  Enabled: false
+
 RSpec/BlockLength:
   Enabled: false
 
