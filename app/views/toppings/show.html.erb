@@ -6,17 +6,17 @@
   <%= link_to toppings_path do %>
     <div class="entry back">Back to Toppings</div>
   <% end %>
-  <div class="item-form-img" style: "display:block;">
+  <div class="item-form-img pizzafy">
     <%= image_tag "pie.png" %>
   </div>
   <div class="item-data">
     <%= render @topping %>
-    <div style="display:flex; flex-flow: row nowrap; gap: 6px; overflow: scroll">
+    <div style="display:flex; flex-flow: row nowrap; gap: 6px">
       <%= link_to edit_topping_path(@topping) do %>
         <div class="entry edit">Edit Topping</div>
       <% end %>
       <div class="entry delete">
-        <%= button_to "DESTROY TOPPING", @topping, method: :delete %>
+        <%= button_to "DESTROY!", @topping, method: :delete %>
       </div>
     </div>
   </div>

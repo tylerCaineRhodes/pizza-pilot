@@ -1,13 +1,15 @@
-<div class="topping" id="<%= dom_id topping %>">
+<div class="topping scrollable" id="<%= dom_id topping %>">
   <h1>Name: <%=topping.name %></h1>
   
   <% if topping.pizzas.any? %>
     <h4>Pizzas with this topping</h4>
-    <% topping.pizzas.each do |pizza| %>
-      <span class="entry pizza">
-      <%= link_to(pizza.name, pizza_path(pizza.id)) %>
-      </span>
-    <% end %>
+    <div style="display:flex; flex-flow:row wrap; justify-content:center">
+      <% topping.pizzas.each do |pizza| %>
+        <span class="entry pizza">
+        <%= link_to(pizza.name, pizza_path(pizza.id)) %>
+        </span>
+      <% end %>
+    </div>
   <% else %>
     <h4>No Pizzas have this topping. So sad :'(</h4>
   <% end %>
