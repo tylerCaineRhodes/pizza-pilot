@@ -5,7 +5,7 @@
     <div style="display:flex; flex-flow:row wrap; justify-content:center">
       <% pizza.toppings.each do |topping| %>
         <span class="entry topping">
-        <%= topping.name %>
+        <%= link_to(topping.name, topping_path(topping.id)) %>
         </span>
       <% end %>
     </div>
