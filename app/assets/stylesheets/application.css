@@ -6,7 +6,9 @@
 }
 
 :root {
-  --primary-color: rgba(253, 25, 4, 0.621);
+  --primary-color: rgb(168, 165, 165);
+  --nav-color: rgb(168, 165, 165);
+  --nav-color-selected: rgb(91, 90, 90);
   --margin-spacing: 2rem;
 }
 
@@ -20,7 +22,7 @@
 .banner {
   background: var(--primary-color);
   font-family: cursive;
-  text-align: left;
+  text-align: center;
   padding-left: 1rem;
   position: sticky;
   top: 0px;
@@ -65,4 +67,28 @@
   color: white;
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  background-color: var(--nav-color)
+}
+
+.nav a {
+  text-decoration: none;
+  color: rgb(30, 29, 29);
+  font: bold;
+}
+
+.nav .nav-link {
+  padding: 1.5rem;
+  min-width: 60px;
+  text-align: center;
+}
+
+.nav .nav-selected {
+  background-color: var(--nav-color-selected);
 }
