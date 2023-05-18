@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe ToppingsController do
-  let(:attributes) { { name: name, calories: calories } }
+  let(:attributes) { { name:, calories: } }
   let(:name) { "Pineapple" }
   let(:calories) { 10 }
 
@@ -10,7 +10,7 @@ RSpec.describe ToppingsController do
 
     context "with valid params" do
       it "creates a new Topping" do
-        expect(subject).to change(Topping, :count).by(1)
+        expect { subject.call }.to change(Topping, :count).by(1)
       end
 
       it "redirects to the created topping" do
@@ -25,7 +25,7 @@ RSpec.describe ToppingsController do
         context "when name attribute is invalid" do
           let(:name) { nil }
           it "does not create a new Topping" do
-            expect(subject).to_not change(Topping, :count)
+            expect { subject.call }.to_not change(Topping, :count)
           end
 
           it "returns an unprocessable entity" do
@@ -37,7 +37,7 @@ RSpec.describe ToppingsController do
         context "when calories attribute is invalid" do
           let(:calories) { -1 }
           it "does not create a new Topping" do
-            expect(subject).to_not change(Topping, :count)
+            expect { subject.call }.to_not change(Topping, :count)
           end
 
           it "returns an unprocessable entity" do
@@ -52,7 +52,7 @@ RSpec.describe ToppingsController do
       let!(:topping) { Topping.create!(attributes) }
 
       it "does not create a new Topping" do
-        expect(subject).to_not change(Topping, :count)
+        expect { subject.call }.to_not change(Topping, :count)
       end
 
       it "redirects to the existing topping" do

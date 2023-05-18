@@ -63,7 +63,7 @@ class PizzasController < ApplicationController
 
   def create_pizza_toppings
     topping_ids.each do |topping_id|
-      PizzaTopping.create(pizza: @pizza, topping_id: topping_id)
+      PizzaTopping.create(pizza: @pizza, topping_id:)
     end
   end
 

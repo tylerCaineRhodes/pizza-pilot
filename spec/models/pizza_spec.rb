@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Pizza do
-  let(:pizza) { described_class.new(name: name) }
+  let(:pizza) { described_class.new(name:) }
   let(:topping) { Topping.create(name: "Pepperoni", calories: 50) }
   let(:name) { "Margherita" }
   let(:calories) { 20 }

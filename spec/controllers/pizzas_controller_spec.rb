@@ -2,11 +2,11 @@ require "rails_helper"
 
 RSpec.describe PizzasController do
   let(:attributes) do
-    { name: name, pizza_toppings_attributes: pizza_toppings_attributes }
+    { name:, pizza_toppings_attributes: }
   end
 
   let(:name) { "Tropical Explosion" }
-  let(:pizza_toppings_attributes) { [{ topping_id: topping_id }] }
+  let(:pizza_toppings_attributes) { [{ topping_id: }] }
   let(:topping_id) { topping.id }
   let(:topping) { Topping.create!(name: "Pineapple", calories: 10) }
 
@@ -20,11 +20,11 @@ RSpec.describe PizzasController do
 
     context "with valid attributes" do
       it "creates a new pizza" do
-        expect(subject).to change(Pizza, :count).by(1)
+        expect { subject.call }.to change(Pizza, :count).by(1)
       end
 
       it "creates a new pizza topping" do
-        expect(subject).to change(PizzaTopping, :count).by(1)
+        expect { subject.call }.to change(PizzaTopping, :count).by(1)
         created_pizza = Pizza.last
         expect(created_pizza.toppings.last).to eq(topping)
       end
@@ -36,7 +36,7 @@ RSpec.describe PizzasController do
       it "redirects to the pizza" do
         subject.call
 
-        new_pizza = Pizza.find_by(name: name)
+        new_pizza = Pizza.find_by(name:)
         expect(response).to redirect_to(pizza_url(new_pizza))
       end
     end
@@ -46,11 +46,11 @@ RSpec.describe PizzasController do
         let(:name) { nil }
 
         it "does not create a new pizza" do
-          expect(subject).not_to change(Pizza, :count)
+          expect { subject.call }.not_to change(Pizza, :count)
         end
 
         it "does not create a new pizza topping" do
-          expect(subject).not_to change(PizzaTopping, :count)
+          expect { subject.call }.not_to change(PizzaTopping, :count)
         end
       end
 
@@ -58,11 +58,11 @@ RSpec.describe PizzasController do
         let(:topping_id) { nil }
 
         it "does not create a new pizza" do
-          expect(subject).not_to change(Pizza, :count)
+          expect { subject.call }.not_to change(Pizza, :count)
         end
 
         it "does not create a new pizza topping" do
-          expect(subject).not_to change(PizzaTopping, :count)
+          expect { subject.call }.not_to change(PizzaTopping, :count)
         end
 
         it "returns an unprocessable entity" do
@@ -75,11 +75,11 @@ RSpec.describe PizzasController do
         let!(:pizza) { Pizza.create!(attributes) }
 
         it "does not create a new pizza" do
-          expect(subject).not_to change(Pizza, :count)
+          expect { subject.call }.not_to change(Pizza, :count)
         end
 
         it "does not create a new pizza topping" do
-          expect(subject).not_to change(PizzaTopping, :count)
+          expect { subject.call }.not_to change(PizzaTopping, :count)
         end
 
         it "redirects to the existing pizza" do
@@ -114,20 +114,19 @@ RSpec.describe PizzasController do
     subject { -> { patch :update, params: { id: existing_pizza.id, pizza: new_attributes } } }
 
     context "with valid attributes" do
+      before { subject.call }
+
       it "updates the existing pizza" do
-        subject.call
         existing_pizza.reload
         expect(existing_pizza.name).to eq "Updated Pizza"
       end
 
       it "updates the pizza topping" do
-        subject.call
         existing_pizza.reload
         expect(existing_pizza.toppings.last).to eq(topping_to_add)
       end
 
       it "redirects to the updated pizza" do
-        subject.call
         expect(response).to redirect_to(pizza_url(existing_pizza))
       end
     end

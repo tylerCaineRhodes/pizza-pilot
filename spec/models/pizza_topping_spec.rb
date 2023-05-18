@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe PizzaTopping do
   let(:pizza) { Pizza.create!(name: "Margherita") }
   let(:topping) { Topping.create!(name: "Pepperoni", calories: 50) }
-  let(:pizza_topping) { described_class.new(pizza: pizza, topping: topping) }
+  let(:pizza_topping) { described_class.new(pizza:, topping:) }
 
   context "validations" do
     context "when all attributes are valid" do
@@ -27,7 +27,7 @@ RSpec.describe PizzaTopping do
       end
 
       context "when the pizza_id and topping_id combination is not unique" do
-        before { PizzaTopping.create!(pizza: pizza, topping: topping) }
+        before { PizzaTopping.create!(pizza:, topping:) }
         it "is not valid" do
           expect(pizza_topping).not_to be_valid
         end

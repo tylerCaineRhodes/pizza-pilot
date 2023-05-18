@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Topping do
-  let(:topping) { described_class.new(name: name, calories: calories) }
+  let(:topping) { described_class.new(name:, calories:) }
   let(:name) { "Margherita" }
   let(:calories) { 20 }
 
