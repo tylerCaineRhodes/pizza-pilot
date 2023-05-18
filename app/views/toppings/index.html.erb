@@ -1,16 +1,14 @@
-<%= render "shared/nav", locals: { selected: "toppings" } %>
+<% add_new_button = link_to new_topping_path do %>
+  <div class="entry add-new">
+    <span>+ Add a Topping</span>
+  </div>
+<% end %>
+
+<%= render "shared/nav", locals: { selected: "toppings", extra_element: add_new_button } %>
 <h2>Le Toppings</h2>
 <div class="items">
   <% @toppings.each do |topping| %>
-    <%= link_to topping do%>
-      <div class="item">
-        <%= topping.name %>
-      </div>
-    <% end %>
-  <% end %>
-  <%= link_to new_topping_path do%>
-    <div class="item">
-        <span>+</span>
-    </div>
+    <% content = "#{topping.calories} calories / serving" %>
+    <%= render "shared/item", locals: { resource: topping, content: content } %>
   <% end %>
 </div>

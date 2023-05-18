@@ -1,7 +1,10 @@
-<h1>Editing topping</h1>
-<%= render "form", topping: @topping %>
-<br>
-<div>
-  <%= link_to "Show this topping", @topping %> |
-  <%= link_to "Back to toppings", toppings_path %>
+<h1>Edit topping</h1>
+<div class="item-data-container">
+  <%= link_to toppings_path do %>
+    <div class="entry back">Back to Toppings</div>
+  <% end %>
+  <div class="item-form-img"></div>
+  <div class="item-data">
+    <%= render "form", topping: @topping %>
+  </div>
 </div>

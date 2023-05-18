@@ -1,7 +1,22 @@
-<p style="color: green"><%= notice %></p>
-<%= render @pizza %>
-<div>
-  <%= link_to "Edit this pizza", edit_pizza_path(@pizza) %> |
-  <%= link_to "Back to pizzas", pizzas_path %>
-  <%= button_to "Destroy this pizza", @pizza, method: :delete %>
+<p style="color: green">
+  <%= flash[:notice] %>
+</p>
+
+<div class="item-data-container">
+  <%= link_to pizzas_path do %>
+    <div class="entry back">Back to Pizzas</div>
+  <% end %>
+  <div class="item-form-img pizzafy">
+  </div>
+  <div class="item-data">
+    <%= render @pizza %>
+    <div style="display:flex; flex-flow: row nowrap; gap: 6px">
+      <%= link_to edit_pizza_path(@pizza) do %>
+        <div class="entry edit">Edit Pizza</div>
+      <% end %>
+      <div class="entry delete">
+        <%= button_to "DESTROY PIZZA", @pizza, method: :delete %>
+      </div>
+    </div>
+  </div>
 </div>

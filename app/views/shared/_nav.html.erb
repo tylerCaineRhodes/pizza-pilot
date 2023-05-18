@@ -1,13 +1,20 @@
-<div class="nav">
-  <%= link_to pizzas_path do %>
-    <div class="nav-link <%= 'nav-selected' if locals[:selected] == 'pizzas' %>">
-      Pizzas
-    </div>
-  <% end %>
+<div class="nav-wrapper">
+  <div class="nav">
+    <%= link_to pizzas_path do %>
+      <div class="nav-link <%= 'nav-selected' if locals[:selected] == 'pizzas' %>">
+        Pizzas
+      </div>
+    <% end %>
 
-  <%= link_to toppings_path do %>
-    <div class="nav-link <%= 'nav-selected' if locals[:selected] == 'toppings' %>">
-      Toppings
+    <%= link_to toppings_path do %>
+      <div class="nav-link <%= 'nav-selected' if locals[:selected] == 'toppings' %>">
+        Toppings
+      </div>
+    <% end %>
+  </div>
+  <% if locals[:extra_element].present? %>
+    <div class="nav-extra-action">
+      <%= locals[:extra_element] %>
     </div>
   <% end %>
 </div>

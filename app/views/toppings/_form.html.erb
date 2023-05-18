@@ -12,7 +12,7 @@
   <% end %>
   <div>
     <p>
-      <%= form.label :name %><br>
+      <%= form.label :name, "Topping Name" %><br>
       <%= form.text_field :name %>
     </p>
     <p>
@@ -20,6 +20,6 @@
       <%= form.number_field :calories %>
     </p>
 
-    <%= form.submit %>
+    <%= form.submit class: "entry edit" %>
   </div>
 <% end %>

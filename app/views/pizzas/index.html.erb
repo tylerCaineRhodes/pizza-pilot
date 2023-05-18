@@ -1,17 +1,15 @@
-<div style="color: green"><%= notice %></div>
-<%= render "shared/nav", locals: { selected: "pizzas" } %>
+<% add_new_button = link_to new_pizza_path do %>
+  <div class="entry add-new">
+    <span>+ Add a Pizza</span>
+  </div>
+<% end %>
+
+<p style="color: green"><%= flash[:notice] %></p>
+<%= render "shared/nav", locals: { selected: "pizzas", extra_element: add_new_button } %>
 <h2>Le Pizzas</h2>
 <div class="items">
   <% @pizzas.each do |pizza| %>
-    <%= link_to pizza do %>
-      <div class="item">
-          <%= pizza.name %>
-      </div>
-    <% end %>
-  <% end %>
-  <%= link_to new_pizza_path do %>
-    <div class="item">
-        <span>+</span>
-    </div>
+    <% content = "#{pizza.calories} calories / slice" %>
+    <%= render "shared/item", locals: { resource: pizza, content: content } %>
   <% end %>
 </div>

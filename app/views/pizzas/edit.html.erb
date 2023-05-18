@@ -1,10 +1,14 @@
 <h1>Editing pizza</h1>
-<%= render "form", pizza: @pizza %>
-<br>
-<div>
-  <%= link_to "Show this pizza", @pizza %> |
-  <%= link_to "Back to pizzas", pizzas_path %>
-</div>
-<div>
-  Don't see your topping? <%= link_to "Create a new topping", new_topping_path %>
+<div class="item-data-container">
+  <%= link_to pizzas_path do %>
+    <div class="entry back">Back to Pizzas</div>
+  <% end %>
+  <div class="item-form-img pizzafy"></div>
+  <div class="item-data">
+    <%= render "form", pizza: @pizza %>
+    <br>
+    <div>
+      Don't see your topping? <%= link_to "Create a new topping", new_topping_path %>
+    </div>
+  </div>
 </div>
