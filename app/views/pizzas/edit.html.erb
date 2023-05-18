@@ -3,12 +3,17 @@
   <%= link_to pizzas_path do %>
     <div class="entry back">Back to Pizzas</div>
   <% end %>
-  <div class="item-form-img pizzafy"></div>
+  <div class="item-form-img pizzafy">
+    <%= image_tag "pie.png" %>
+  </div>
   <div class="item-data">
     <%= render "form", pizza: @pizza %>
     <br>
     <div>
-      Don't see your topping? <%= link_to "Create a new topping", new_topping_path %>
+      Don't see your topping? 
+      <span style="text-decoration: underline;">
+      <%= link_to "Create a new topping", new_topping_path %>
+      </span>
     </div>
   </div>
 </div>

@@ -10,6 +10,7 @@
 <div class="items">
   <% @pizzas.each do |pizza| %>
     <% content = "#{pizza.calories} calories / slice" %>
-    <%= render "shared/item", locals: { resource: pizza, content: content } %>
+    <%= render "shared/item",
+     locals: { resource: pizza, content: content, img: "slice.png" } %>
   <% end %>
 </div>

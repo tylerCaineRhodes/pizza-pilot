@@ -9,6 +9,6 @@
 <div class="items">
   <% @toppings.each do |topping| %>
     <% content = "#{topping.calories} calories / serving" %>
-    <%= render "shared/item", locals: { resource: topping, content: content } %>
+    <%= render "shared/item", locals: { resource: topping, content: content, img: "toppings.png" } %>
   <% end %>
 </div>

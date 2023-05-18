@@ -3,7 +3,9 @@
   <%= link_to pizzas_path do %>
     <div class="entry back">Back to Pizzas</div>
   <% end %>
-  <div class="item-form-img pizzafy"></div>
+  <div class="item-form-img pizzafy">
+    <%= image_tag "pie.png" %>
+  </div>
   <div class="item-data">
     <%= render "form", pizza: @pizza %>
   </div>

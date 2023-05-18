@@ -1,5 +1,7 @@
 <%= link_to locals[:resource] do %>
-  <div class="item-img"></div>
+  <div class="item-img">
+    <%= image_tag locals[:img] %>
+  </div>
   <div class="item-content">
     <div class="item-name">
       <%= locals[:resource].name %>

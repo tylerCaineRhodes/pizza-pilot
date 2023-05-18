@@ -6,8 +6,8 @@
   <%= link_to toppings_path do %>
     <div class="entry back">Back to Toppings</div>
   <% end %>
-
-  <div class="item-form-img">
+  <div class="item-form-img" style: "display:block;">
+    <%= image_tag "pie.png" %>
   </div>
   <div class="item-data">
     <%= render @topping %>

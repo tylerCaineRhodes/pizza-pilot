@@ -4,7 +4,9 @@
     <div class="entry back">Back to Toppings</div>
   <% end %>
 
-  <div class="item-form-img"></div>
+  <div class="item-form-img">
+    <%= image_tag "pie.png" %>
+  </div>
   <div class="item-data">
     <%= render "form", topping: @topping %>
   </div>
