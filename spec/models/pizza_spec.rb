@@ -43,4 +43,20 @@ RSpec.describe Pizza do
       end
     end
   end
+
+  describe "#add_topping" do
+    context "when the topping is not already on the pizza" do
+      it "adds the topping to the pizza" do
+        pizza.add_topping(topping)
+        expect(pizza.toppings).to include(topping)
+      end
+    end
+
+    context "when the topping is already on the pizza" do
+      it "does not add the topping to the pizza" do
+        2.times { pizza.add_topping(topping) }
+        expect(pizza.toppings.size).to eq(1)
+      end
+    end
+  end
 end

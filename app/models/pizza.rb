@@ -10,6 +10,10 @@ class Pizza < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
+  def add_topping(topping)
+    toppings << topping unless topping?(topping)
+  end
+
   def topping?(topping)
     toppings.include?(topping)
   end
