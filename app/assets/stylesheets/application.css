@@ -14,7 +14,7 @@
     align-items: center;
   }
   .item-data-container .item-form-img {
-    background-color: var(--nav-color);
+    background-color: var(--indecisive-gray);
   }
   .item-data-container .item-form-img, .item-form-img > img {
     transform: translate(0px, calc(var(--show-form-dimension) / 2));
@@ -27,10 +27,10 @@
 
 :root {
   --primary-color: #D9D9D9;
-  --nav-color: rgb(168, 165, 165);
-  --nav-color-selected: #797979;
-  --margin-spacing: 2rem;
+  --indecisive-gray: rgb(168, 165, 165);
+  --indecisive-gray-selected: #797979;
   --show-form-dimension: 400px;
+  --button-radius: 6px;
 }
 
 .main-content {
@@ -59,7 +59,7 @@
 .items > a {
   display: flex;
   flex-direction: column;
-  margin: var(--margin-spacing);
+  margin: 2rem;
   justify-content: center;
   align-items: center;
   height: 200px;
@@ -122,7 +122,8 @@
   justify-content: center;
   align-items: center;
   margin: 1rem;
-  background-color: var(--nav-color)
+  background-color: var(--indecisive-gray);
+  border-radius: var(--button-radius);
 }
 
 .nav .nav-link {
@@ -132,9 +133,10 @@
 }
 
 .nav .nav-selected {
-  background-color: var(--nav-color-selected);
+  background-color: var(--indecisive-gray-selected);
   font-weight: bold;
   color: white;
+  border-radius: var(--button-radius);
 }
 
 .entry {
@@ -146,10 +148,9 @@
  
   background: #F5F5F5;
   border: 1px solid #5A5A5A;
-  border-radius: 6px;
+  border-radius: var(--button-radius);
   padding: 10px;
   cursor: pointer;
-
 }
 
 a {
@@ -175,7 +176,7 @@ a {
   height: var(--show-form-dimension);
   width: var(--show-form-dimension);
   transform: translate(calc(var(--show-form-dimension) / 2), 0px);
-  background-color: var(--nav-color);
+  background-color: var(--indecisive-gray);
 }
 
 .pizzafy {
