@@ -7,6 +7,9 @@ AllCops:
 Lint/UnusedBlockArgument:
   Enabled: false
 
+Metrics/BlockLength:
+  Enabled: false
+
 Metrics/MethodLength:
   Enabled: false
 
@@ -23,9 +26,6 @@ Rails/FilePath:
   Enabled: false
 
 Rails/I18nLocaleTexts:
-  Enabled: false
-
-RSpec/BlockLength:
   Enabled: false
 
 Style/For:
