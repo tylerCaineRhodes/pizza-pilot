@@ -19,9 +19,13 @@
   .item-data-container .item-form-img, .item-form-img > img {
     transform: translate(0px, calc(var(--show-form-dimension) / 2));
   }
-
  .item-form-img .pizzafy > img, .item-form-img > img {
   transform: rotate(180deg);
+  }
+
+  a .back {
+    top: 10%;
+    left: 30%;
   }
 }
 
@@ -41,6 +45,9 @@
 }
 
 .banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: var(--primary-color);
   font-family: cursive;
   text-align: center;
